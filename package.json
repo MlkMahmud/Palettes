@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/MlkMahmud/Palettes/issues"
   },
-  "homepage": "https://github.com/MlkMahmud/Palettes#readme"
+  "homepage": "https://github.com/MlkMahmud/Palettes#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0"
+  }
 }
