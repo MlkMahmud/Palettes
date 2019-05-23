@@ -2,8 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const DotEnv = require('dotenv-webpack');
-const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const FaviconWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   output: {
@@ -12,7 +12,7 @@ module.exports = {
     publicPath: '/',
   },
   optimization: {
-    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    minimizer: [new OptimizeCSSAssetsPlugin({})],
   },
   module: {
     rules: [
@@ -53,13 +53,19 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: './public/index.html',
-      template: path.join(__dirname, 'index.html'),
+      filename: 'index.html',
+      template: path.join(__dirname, 'public', 'index.html'),
+      minify: true,
     }),
 
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].css',
       chunkFilename: '[id].css',
+    }),
+    new FaviconWebpackPlugin({
+      logo: './public/assets/favicon-min.jpg',
+      inject: true,
+      prefix: 'icons/',
     }),
     new DotEnv({
       path: './.env',

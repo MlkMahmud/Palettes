@@ -1,0 +1,10 @@
+.animated-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #00c6ff;
+  background: -webkit-linear-gradient(to bottom, #0072ff, #00c6ff);
+  background: linear-gradient(to bottom,  #00c6ff, #0072ff);
+}
