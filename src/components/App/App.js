@@ -1,11 +1,10 @@
 import React from 'react';
-import Menu from '../Menu/Menu.jsx';
+import Menu from '../Menu/Menu';
 import './styles/reset.css';
 
 function App() {
   return (
     <>
-      <h1>Hello Seattle</h1>
       <Menu />
     </>
   );

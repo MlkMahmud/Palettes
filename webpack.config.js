@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const DotEnv = require('dotenv-webpack');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const FaviconWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   output: {
@@ -54,18 +53,14 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.join(__dirname, 'public', 'index.html'),
+      template: path.join(__dirname, 'src', 'public', 'index.html'),
       minify: true,
+      favicon: path.join(__dirname, 'src', 'public', 'favicon.ico'),
     }),
 
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].css',
       chunkFilename: '[id].css',
-    }),
-    new FaviconWebpackPlugin({
-      logo: './public/assets/favicon-min.jpg',
-      inject: true,
-      prefix: 'icons/',
     }),
     new DotEnv({
       path: './.env',
